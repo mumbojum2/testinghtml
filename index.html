@@ -4,21 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Popup Example</title>
-    <style>
-        #popupContent {
-            border: 1px solid #000;
-            padding: 10px;
-            width: 200px;
-            background-color: #f9f9f9;
-        }
-    </style>
 </head>
 <body>
-    <details>
-        <summary>Open Popup</summary>
-        <div id="popupContent">
-            <p>This is a simple popup!</p>
-        </div>
-    </details>
+    <button id="openPopup">Open Popup</button>
+    
+    <dialog id="popupDialog">
+        <p>This is a simple popup!</p>
+        <button id="closePopup">Close</button>
+    </dialog>
+
+    <script>
+        const openButton = document.getElementById('openPopup');
+        const closeButton = document.getElementById('closePopup');
+        const popupDialog = document.getElementById('popupDialog');
+
+        openButton.addEventListener('click', () => {
+            popupDialog.showModal();
+        });
+
+        closeButton.addEventListener('click', () => {
+            popupDialog.close();
+        });
+    </script>
 </body>
 </html>
